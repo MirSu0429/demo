@@ -1,4 +1,6 @@
 spring:
+  logging:
+    config: quartz.properties
   datasource:
     url: jdbc:mysql://localhost:3306/quartz?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
@@ -12,5 +14,6 @@ mybatis:
   mapper-locations:
   - classpath:com/example/demo/dao/mapper/*.xml
   type-aliases-package: com.example.demo.entity
+
 
     

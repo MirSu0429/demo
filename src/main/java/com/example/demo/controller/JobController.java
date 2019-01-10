@@ -46,7 +46,11 @@ public class JobController
 
 	private static Logger log = LoggerFactory.getLogger(JobController.class);  
 	
-
+	/**
+	 * @Description //TODO 添加任务
+	 * @Param 
+	 * @return 
+	 **/
 	@PostMapping(value="/addjob")
 	public void addjob(@RequestParam(value="jobClassName")String jobClassName, 
 			@RequestParam(value="jobGroupName")String jobGroupName, 
@@ -79,7 +83,11 @@ public class JobController
         }
 	}
 
-
+	/**
+	 * @Description //TODO 暂停任务
+	 * @Param 
+	 * @return 
+	 **/
 	@PostMapping(value="/pausejob")
 	public void pausejob(@RequestParam(value="jobClassName")String jobClassName, @RequestParam(value="jobGroupName")String jobGroupName) throws Exception
 	{			
@@ -91,7 +99,11 @@ public class JobController
 		scheduler.pauseJob(JobKey.jobKey(jobClassName, jobGroupName));
 	}
 	
-
+	/**
+	 * @Description //TODO 启动任务
+	 * @Param 
+	 * @return 
+	 **/
 	@PostMapping(value="/resumejob")
 	public void resumejob(@RequestParam(value="jobClassName")String jobClassName, @RequestParam(value="jobGroupName")String jobGroupName) throws Exception
 	{			
@@ -103,7 +115,11 @@ public class JobController
 		scheduler.resumeJob(JobKey.jobKey(jobClassName, jobGroupName));
 	}
 	
-	
+	/**
+	 * @Description //TODO 修改任务
+	 * @Param 
+	 * @return 
+	 **/
 	@PostMapping(value="/reschedulejob")
 	public void rescheduleJob(@RequestParam(value="jobClassName")String jobClassName, 
 			@RequestParam(value="jobGroupName")String jobGroupName,
@@ -132,7 +148,11 @@ public class JobController
 		}
 	}
 	
-	
+	/**
+	 * @Description //TODO 删除
+	 * @Param 
+	 * @return 
+	 **/
 	@PostMapping(value="/deletejob")
 	public void deletejob(@RequestParam(value="jobClassName")String jobClassName, @RequestParam(value="jobGroupName")String jobGroupName) throws Exception
 	{			
@@ -146,7 +166,11 @@ public class JobController
 		scheduler.deleteJob(JobKey.jobKey(jobClassName, jobGroupName));				
 	}
 	
-	
+	/**
+	 * @Description //TODO 查询
+	 * @Param 
+	 * @return 
+	 **/
 	@GetMapping(value="/queryjob")
 	public Map<String, Object> queryjob(@RequestParam(value="pageNum")Integer pageNum, @RequestParam(value="pageSize")Integer pageSize) 
 	{			

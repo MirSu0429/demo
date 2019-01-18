@@ -2,7 +2,7 @@
 <?import java.io.Console?>
 <?import org.apache.logging.log4j.core.config.Loggers?>
 <?import org.apache.logging.log4j.core.config.AppenderRef?>
-<Configuration status="debug" strict="true" name="LogConfig">
+<Configuration status="info" strict="true" name="LogConfig">
     <Properties>
         <Property name="filepath">/tmp/log4j2</Property>
     </Properties>
@@ -24,12 +24,12 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Logger name="fileLogger" level="debug" additivity="false">
+        <Logger name="fileLogger" level="info" additivity="false">
             <AppenderRef ref="logService"/>
             <AppenderRef ref="STDOUT"/>
         </Logger>
 
-        <Root level="debug">
+        <Root level="info">
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>

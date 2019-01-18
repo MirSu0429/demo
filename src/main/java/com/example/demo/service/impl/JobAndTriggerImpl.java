@@ -1,23 +1,16 @@
 package com.example.demo.service.impl;
 
-import java.util.List;
-
-import com.example.demo.util.redis.RedisUtil;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import org.apache.logging.log4j.core.util.JsonUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.demo.dao.JobAndTriggerMapper;
 import com.example.demo.entity.JobAndTrigger;
 import com.example.demo.service.IJobAndTriggerService;
+import com.example.demo.util.redis.RedisUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @Service

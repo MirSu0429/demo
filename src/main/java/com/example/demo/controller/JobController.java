@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.demo.util.redis.RedisUtil;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
@@ -43,6 +44,7 @@ public class JobController
 
 	@Autowired
 	private Scheduler scheduler ;
+
 
 	private static Logger log = LoggerFactory.getLogger(JobController.class);  
 	

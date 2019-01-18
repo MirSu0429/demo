@@ -158,7 +158,9 @@ public class RedisUtil {
             throw new RuntimeException("递减因子必须大于0");
         }
         return redisTemplate.opsForValue().increment(key, -delta);
-    } //================================Map=================================
+    }
+
+    //================================Map=================================
 
     /**
      * HashGet
@@ -302,7 +304,8 @@ public class RedisUtil {
      */
     public double hdecr(String key, String item, double by) {
         return redisTemplate.opsForHash().increment(key, item, -by);
-    } //============================set=============================
+    }
+    //============================set=============================
 
     /**
      * 根据key获取Set中的所有值
@@ -402,7 +405,8 @@ public class RedisUtil {
             e.printStackTrace();
             return 0;
         }
-    } //===============================list=================================
+    }
+    //===============================list=================================
 
     /**
      * 获取list缓存的内容
@@ -414,7 +418,7 @@ public class RedisUtil {
      */
     public List<Object> lGet(String key, long start, long end) {
         try {
-            return redisTemplate.opsForList().range(key, start, end);
+            return  redisTemplate.opsForList().range(key, start, end);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -440,7 +444,8 @@ public class RedisUtil {
      * 通过索引 获取list中的值
      *
      * @param key   键
-     * @param index 索引  index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
+     * @param index 索引  index>=0时， 0 表头，1 第二个元素，依次类推；
+     *              index<0时，-1，表尾，-2倒数第二个元素，依次类推
      * @return
      */
     public Object lGetIndex(String key, long index) {

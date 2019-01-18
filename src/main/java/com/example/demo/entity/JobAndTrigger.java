@@ -1,8 +1,9 @@
 package com.example.demo.entity;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class JobAndTrigger {
+public class JobAndTrigger implements Serializable {
 	private String JOB_NAME;
 	private String JOB_GROUP;
 	private String JOB_CLASS_NAME;

@@ -44,10 +44,13 @@ public class RedisConfig {
     private boolean testOnBorrow;
     @Value("${redis.testWhileIdle}")
     private boolean testWhileIdle;
-    @Value("${spring.redis.cluster.nodes}")
+    /**
+     * @Description //TODO 集群配置
+     **/
+   /* @Value("${spring.redis.cluster.nodes}")
     private String clusterNodes;
     @Value("${spring.redis.cluster.max-redirects}")
-    private Integer mmaxRedirectsac;
+    private Integer mmaxRedirectsac;*/
     /**
      * 哨兵模式,使用请打开注释
      **/
@@ -105,11 +108,11 @@ public class RedisConfig {
         //连接池
         jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
         // IP地址
-        jedisConnectionFactory.setHostName("192.168.177.128");
+        jedisConnectionFactory.setHostName(hostName);
         //端口号
-        jedisConnectionFactory.setPort(6379);
+        jedisConnectionFactory.setPort(port);
         //如果Redis设置有密码
-        //jedisConnectionFactory.setPassword(password);
+        //jedisConnectionFactory.setPassword();
         //客户端超时时间单位是毫秒
         jedisConnectionFactory.setTimeout(5000);
         return jedisConnectionFactory;
@@ -122,7 +125,7 @@ public class RedisConfig {
      * @autor lpl
      * @date 2017年12月22日
      */
-    @Bean
+/*    @Bean
     public RedisClusterConfiguration redisClusterConfiguration() {
         RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration();
         String[] serverArray = clusterNodes.split(",");
@@ -134,7 +137,7 @@ public class RedisConfig {
         redisClusterConfiguration.setClusterNodes(nodes);
         redisClusterConfiguration.setMaxRedirects(mmaxRedirectsac);
         return redisClusterConfiguration;
-    }
+    }*/
     /**
      * 配置redis的哨兵
      * @return RedisSentinelConfiguration

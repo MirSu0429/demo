@@ -62,8 +62,7 @@ public class JobController
 	}
 	
 	public void addJob(String jobClassName, String jobGroupName, String cronExpression)throws Exception{
-        
-        // 启动调度器  
+        // 启动调度器
 		scheduler.start(); 
 		
 		//构建job信息

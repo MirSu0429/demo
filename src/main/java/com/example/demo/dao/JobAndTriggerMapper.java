@@ -1,9 +1,10 @@
 package com.example.demo.dao;
 
-import java.util.List;
-
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.demo.entity.JobAndTrigger;
 
-public interface JobAndTriggerMapper {
+import java.util.List;
+
+public interface JobAndTriggerMapper extends BaseMapper<JobAndTrigger> {
 	 List<JobAndTrigger> getJobAndTriggerDetails();
 }

@@ -13,6 +13,6 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index() {
-        return "/view/JobManager.html";
+        return "/view/index.html";
     }
 }

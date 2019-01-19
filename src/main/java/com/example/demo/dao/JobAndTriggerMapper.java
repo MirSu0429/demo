@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface JobAndTriggerMapper extends BaseMapper<JobAndTrigger> {
 	 List<JobAndTrigger> getJobAndTriggerDetails();
+
+	List<JobAndTrigger> selectJobAndTriggerDetails();
 }

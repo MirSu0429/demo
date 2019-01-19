@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 
-@Service
+@Service("jobAndTriggerImpl")
 public class JobAndTriggerImpl extends ServiceImpl<JobAndTriggerMapper,JobAndTrigger> implements IJobAndTriggerService{
 
 	@Resource
@@ -39,6 +39,11 @@ public class JobAndTriggerImpl extends ServiceImpl<JobAndTriggerMapper,JobAndTri
 		List<JobAndTrigger> list = jobAndTriggerMapper.getJobAndTriggerDetails();
 		page = new PageInfo<JobAndTrigger>(list);
 		return page;
+	}
+
+	@Override
+	public List<JobAndTrigger> selectJobAndTriggerDetails() {
+		return baseMapper.selectJobAndTriggerDetails();
 	}
 
 }

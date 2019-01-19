@@ -60,12 +60,11 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.0.6</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
 			<version>2.3</version>
-		</dependency>
-
+		</dependency>-->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generate</artifactId>

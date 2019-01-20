@@ -11,4 +11,6 @@ public interface IJobAndTriggerService extends IService<JobAndTrigger> {
 	public PageInfo<JobAndTrigger> getJobAndTriggerDetails(int pageNum, int pageSize);
 
 	List<JobAndTrigger> selectJobAndTriggerDetails();
+
+	JobAndTrigger getJobAndTriggerDetail(String jobClassName, String jobGroupName, String cronExpression);
 }

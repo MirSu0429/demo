@@ -46,4 +46,9 @@ public class JobAndTriggerImpl extends ServiceImpl<JobAndTriggerMapper,JobAndTri
 		return baseMapper.selectJobAndTriggerDetails();
 	}
 
+	@Override
+	public JobAndTrigger getJobAndTriggerDetail(String jobClassName, String jobGroupName, String cronExpression) {
+		return baseMapper. getJobAndTriggerDetail( jobClassName,  jobGroupName,  cronExpression);
+	}
+
 }

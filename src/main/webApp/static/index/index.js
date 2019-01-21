@@ -9,13 +9,21 @@ $(function () {
                     return index+1;
                 }
             },
-            {title: '任务名称', field: 'jobName', visible: true, align: 'center', valign: 'middle',width:180},
-            {title: '任务所在组', field: 'jobGroup', visible: true, align: 'center', valign: 'middle'},
-            {title: '任务类名', field: 'jobClassName', visible: true, align: 'center', valign: 'middle',width:180},
-            {title: '触发器名称', field: 'triggerName', visible: false, align: 'center', valign: 'middle',width:180},
-            {title: '触发器所在组', field: 'triggerGroup', visible: false, align: 'center', valign: 'middle'},
-            {title: '表达式', field: 'cronExpression', visible: true, align: 'center', valign: 'middle',width:180},
-            {title: '时区', field: 'timeZoneId', visible: true, align: 'center', valign: 'middle',width:180}
+            {title: 'id', field: 'id', visible: false, align: 'center', valign: 'middle'},
+            {title: '任务名称', field: 'jobName', visible: true, align: 'center', valign: 'middle'},
+            //{title: '任务所在组', field: 'jobGroup', visible: true, align: 'center', valign: 'middle'},
+            {title: '任务类名', field: 'clazzPath', visible: true, align: 'center', valign: 'middle'},
+            {title: '表达式', field: 'cron', visible: true, align: 'center', valign: 'middle'},
+            //{title: '触发器所在组', field: 'triggerGroup', visible: false, align: 'center', valign: 'middle'},
+            {title: '描述', field: 'jobDesc', visible: false, align: 'center', valign: 'middle'},
+            {title: '任务状态', field: 'status', visible: true, align: 'center', valign: 'middle',formatter:function (value) {
+                    if (value == 1) {
+                        return "运行中"
+                    }
+                    if (value == 0) {
+                        return "已停止"
+                    }
+                }}
         ]
     })
 })
@@ -48,12 +56,11 @@ function startJob() {
             url: '/start_job',
             type: "POST",
             data: {
-                jobClassName: row.jobClassName,
-                jobGroupName: row.jobGroup
+                id: row.id
             },
             success:function (data) {
                 refresh();
-                msg(data);
+                msg(data.msg);
             }
         })
     }
@@ -64,12 +71,11 @@ function pauseJob() {
             url: '/pause_job',
             type: "POST",
             data: {
-                jobClassName: row.jobClassName,
-                jobGroupName: row.jobGroup
+                id: row.id
             },
             success:function (data) {
                 refresh();
-                msg(data);
+                msg(data.msg);
             }
         })
     }
@@ -80,12 +86,11 @@ function deleteJob() {
             url: '/delete_job',
             type: "POST",
             data: {
-                jobClassName: row.jobClassName,
-                jobGroupName: row.jobGroup
+                id: row.id
             },
             success:function (data) {
                 refresh();
-                msg(data);
+                msg(data.msg);
             }
         })
     }
@@ -100,9 +105,10 @@ function openUpdate() {
             maxmin: true,
             content: $("#insertWid"),
             success: function (index, e) {
-                        $('#jobClassName').val(row.jobClassName);
-                        $('#jobGroup').val(row.jobGroup);
-                        $('#cronExpression').val(row.cronExpression);
+                        $('#id').val(row.id);
+                        $('#clazzPath').val(row.clazzPath);
+                        $('#jobName').val(row.jobName);
+                        $('#cron').val(row.cron);
                 $(':focus').blur();
             }
         });
@@ -116,14 +122,15 @@ function update() {
         url : '/update_job',
         type: 'POST',
         data:{
-            jobGroupName : $("#jobGroup").val(),
-            jobClassName : $("#jobClassName").val(),
-            cronExpression : $("#cronExpression").val()
+            id : $("#id").val(),
+            jobName : $("#jobName").val(),
+            cron : $("#cron").val(),
+            clazzPath : $("#clazzPath").val()
         },
         success :function (data) {
             refresh();
             back();
-            msg(data);
+            msg(data.msg);
         }
     })
 }

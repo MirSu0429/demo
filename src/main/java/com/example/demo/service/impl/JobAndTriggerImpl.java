@@ -126,6 +126,7 @@ public class JobAndTriggerImpl extends ServiceImpl<JobAndTriggerMapper,JobAndTri
 		}
 	}
 
+
 	public static BaseJob getClass(String classname) throws Exception {
 		Class<?> class1 = Class.forName(classname);
 		return (BaseJob) class1.newInstance();

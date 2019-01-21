@@ -59,26 +59,27 @@
 </body>
 <div id="insertWid" class="container-fluid" style="display: none">
     <form method="get" role="form" class="form-horizontal border" >
+        <input type="hidden"  id="id" />
         <br/>
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group row">
                     <label class="offset-lg-1 col-lg-2 control-label">任务名称：</label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="jobGroup" value="${item.jobGroup}" disabled>
+                        <input type="text" class="form-control" id="jobName" value="${item.jobName}" disabled>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="offset-lg-1 col-lg-2 control-label">任务类名：</label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="jobClassName" value="${item.jobClassName}" disabled>
+                        <input type="text" class="form-control" id="clazzPath" value="${item.clazzPath}" disabled>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="offset-lg-1 col-lg-2 control-label">表达式：<a href="http://cron.qqe2.com/" target="_blank">在线生成</a></label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="cronExpression" value="${item.cronExpression}">
+                        <input type="text" class="form-control" id="cron" value="${item.cron}">
                     </div>
                 </div>
             </div>

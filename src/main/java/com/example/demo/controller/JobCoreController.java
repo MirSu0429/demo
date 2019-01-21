@@ -17,7 +17,7 @@ import java.util.List;
  * @Date: 2019/1/19 10:24
  * @Description:
  */
-@Controller
+//@Controller
 public class JobCoreController {
 
     @Autowired

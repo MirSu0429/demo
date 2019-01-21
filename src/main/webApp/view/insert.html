@@ -20,19 +20,19 @@
                     <div class="form-group row">
                         <label class="offset-lg-1 col-lg-2 control-label">任务名称：</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="jobGroup">
+                            <input type="text" class="form-control" id="jobName">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="offset-lg-1 col-lg-2 control-label">任务类名：</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="jobClassName">
+                            <input type="text" class="form-control" id="clazzPath">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="offset-lg-1 col-lg-2 control-label">表达式：<a href="http://cron.qqe2.com/" target="_blank">在线生成</a></label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" id="cronExpression">
+                            <input type="text" class="form-control" id="cron">
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,9 @@
             url : '/insert',
             type: 'POST',
             data:{
-                jobGroupName : $("#jobGroup").val(),
-                jobClassName : $("#jobClassName").val(),
-                cronExpression : $("#cronExpression").val()
+                jobName : $("#jobName").val(),
+                clazzPath : $("#clazzPath").val(),
+                cron : $("#cron").val()
             },
             success :function (data) {
                 window.parent.refresh();

@@ -6,19 +6,35 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    #mvc:
+    #    view:
+    #     prefix: /static/
+#消息列队配置===↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: true
+    pool:
+      enabled: false
 
-  #mvc:
-  #    view:
-   #     prefix: /static/
-#mybatis:
-#  mapper-locations:
-#  - classpath:com/example/demo/dao/mapper/*.xml
-#  type-aliases-package: com.example.demo.entity
+# springboot默认采用的是p2p模式进行消息的监听 queue
+  jms:
+    pub-sub-domain: true   # 配置消息的类型，如果是true则表示为topic消息，如果为false表示Queue消息
+#消息列队配置===↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+#日志===↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 logging:
   config: classpath:log4j2.xml
   # 打印sql
   level:
     com.example.demo.dao: debug
+#日志===↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+#mybatis-plus相关===↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  #mybatis:
+  #  mapper-locations:
+  #  - classpath:com/example/demo/dao/mapper/*.xml
+  #  type-aliases-package: com.example.demo.entity
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
